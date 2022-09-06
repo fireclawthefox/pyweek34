@@ -1,0 +1,9 @@
+id,name,required_ore,image,tooltip,build_time_m,food_production,water_production,general_goods_production,ore_production,population,defense_strength
+livingQuarters,Living\nQuarters,15,living,"Adds population, building time {} Minutes",5,0,0,0,0,10,0
+foodProduction,Farm,10,farm,"Produces food, building time {} Minutes",2,75,0,0,0,0,0
+waterProduction,Water\nRefinery,10,water,"Produces Water, building time {} Minutes",2,0,75,0,0,0,0
+mining,Mine,0,mine,"Produces ores, building time {} Minutes",1,0,0,0,40,0,0
+genGoodFactory,Factory,10,factory,"Produces general goods, building time {} Minutes",4,0,0,100,0,0,0
+defenseTower,Tower,20,tower,"Enhance defense, building time {} Minutes",8,0,0,0,0,0,5
+defenseShield,Shield,25,shield,"Enhance defense, building time {} Minutes",10,0,0,0,0,0,10
+defenseArmy,Army,30,army,"Enhance defense, building time {} Minutes",12,0,0,0,0,0,15

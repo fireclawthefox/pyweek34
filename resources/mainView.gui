@@ -1,0 +1,252 @@
+{
+  "ProjectVersion": "0.2a",
+  "EditorConfig": {
+    "usePixel2D": false,
+    "canvasSize": "(-960.0, 960.0, -540.0, 540.0)"
+  },
+  "ComponentList": {
+    "frmStats": {
+      "element": {
+        "state": "'normal'",
+        "frameSize": "(0.0, 0.5, -1.0, 0.0)",
+        "frameColor": "(0.0, 0.0, 0.0, 0.4)",
+        "pos": "LPoint3f(0, 0, 0)",
+        "transparency": "0",
+        "canvasSize": "(0.0, 0.4, -1.5, 0.0)",
+        "scrollBarWidth": "0.03",
+        "horizontalScroll_transparency": "0",
+        "horizontalScroll_decButton_transparency": "0",
+        "horizontalScroll_incButton_transparency": "0",
+        "horizontalScroll_thumb_transparency": "0",
+        "verticalScroll_transparency": "0",
+        "verticalScroll_decButton_transparency": "0",
+        "verticalScroll_incButton_transparency": "0",
+        "verticalScroll_thumb_transparency": "0"
+      },
+      "type": "DirectScrolledFrame",
+      "parent": "a2dTopLeft",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {}
+    },
+    "collapseStats": {
+      "element": {
+        "relief": "5",
+        "frameColor": "(0.2, 0.8, 1.0, 0.75)",
+        "pos": "LPoint3f(0.245559, 0, -1.04433)",
+        "scale": "LVecBase3f(0.05, 0.05, 0.05)",
+        "transparency": "0",
+        "text": "['Show/Hide Stats']"
+      },
+      "type": "DirectButton",
+      "parent": "frmStats",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {
+        "pressEffect": 1,
+        "command": "base.messenger.send",
+        "extraArgs": [
+          "\"toggle_stats\""
+        ]
+      }
+    },
+    "lblNotification": {
+      "element": {
+        "frameColor": "(0.8, 0.8, 0.0, 0.8)",
+        "pad": "(0.5, 0.2)",
+        "pos": "LPoint3f(0, 0, -0.22)",
+        "scale": "LVecBase3f(0.07, 0.07, 0.07)",
+        "transparency": "0",
+        "text": "['Event Notifications']"
+      },
+      "type": "DirectLabel",
+      "parent": "a2dTopCenter",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {}
+    },
+    "lblTimer": {
+      "element": {
+        "frameColor": "(0.2, 0.8, 1.0, 0.8)",
+        "pad": "(0.2, 0.2)",
+        "pos": "LPoint3f(0, 0, -0.1)",
+        "scale": "LVecBase3f(0.1, 0.1, 0.1)",
+        "transparency": "0",
+        "text": "['Time Left: 00:00']"
+      },
+      "type": "DirectLabel",
+      "parent": "a2dTopCenter",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {}
+    },
+    "frmEconomy": {
+      "element": {
+        "frameSize": "(-1.0, 1.0, 0.0, 0.5)",
+        "frameColor": "(0.0, 0.0, 0.0, 0.5)",
+        "pos": "LPoint3f(0, 0, 0)",
+        "transparency": "0",
+        "text": "['Economy']"
+      },
+      "type": "DirectFrame",
+      "parent": "a2dBottomCenter",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {}
+    },
+    "btnCollapseEconomy": {
+      "element": {
+        "relief": "5",
+        "frameColor": "(0.2, 0.8, 1.0, 0.75)",
+        "pos": "LPoint3f(-0.693084, 0, 0.520597)",
+        "scale": "LVecBase3f(0.05, 0.05, 0.05)",
+        "transparency": "0",
+        "text": "['Show/Hide Economy panel']"
+      },
+      "type": "DirectButton",
+      "parent": "frmEconomy",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {
+        "pressEffect": 1,
+        "command": "base.messenger.send",
+        "extraArgs": [
+          "\"toggle_economy\""
+        ]
+      }
+    },
+    "btnScout": {
+      "element": {
+        "relief": "5",
+        "frameColor": "(0.2, 0.8, 1.0, 0.75)",
+        "pos": "LPoint3f(-0.8, 0, 0.27)",
+        "scale": "LVecBase3f(0.05, 0.05, 0.05)",
+        "transparency": "0",
+        "text": "['Send scouts']"
+      },
+      "type": "DirectButton",
+      "parent": "frmEconomy",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {
+        "pressEffect": 1,
+        "command": "base.messenger.send",
+        "extraArgs": [
+          "\"send_scout\""
+        ]
+      }
+    },
+    "btnTrade": {
+      "element": {
+        "relief": "5",
+        "frameColor": "(0.2, 0.8, 1.0, 0.75)",
+        "pos": "LPoint3f(-0.8, 0, 0.36)",
+        "scale": "LVecBase3f(0.05, 0.05, 0.05)",
+        "transparency": "0",
+        "text": "['Send Trader']"
+      },
+      "type": "DirectButton",
+      "parent": "frmEconomy",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {
+        "pressEffect": 1,
+        "command": "base.messenger.send",
+        "extraArgs": [
+          "\"send_trader\""
+        ]
+      }
+    },
+    "btnRemovePopulation10": {
+      "element": {
+        "relief": "5",
+        "frameColor": "(0.2, 0.8, 1.0, 0.75)",
+        "pos": "LPoint3f(-0.65, 0, 0.17)",
+        "scale": "LVecBase3f(0.05, 0.05, 0.05)",
+        "transparency": "0",
+        "text": "['Decimate Population by 10']"
+      },
+      "type": "DirectButton",
+      "parent": "frmEconomy",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {
+        "pressEffect": 1,
+        "command": "base.messenger.send",
+        "extraArgs": [
+          "\"decimate_population\"",
+          "[10]"
+        ]
+      }
+    },
+    "btnRemovePopulation100": {
+      "element": {
+        "relief": "5",
+        "frameColor": "(0.2, 0.8, 1.0, 0.75)",
+        "pos": "LPoint3f(-0.64, 0, 0.07)",
+        "scale": "LVecBase3f(0.05, 0.05, 0.05)",
+        "transparency": "0",
+        "text": "['Decimate Population by 100']"
+      },
+      "type": "DirectButton",
+      "parent": "frmEconomy",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {
+        "pressEffect": 1,
+        "command": "base.messenger.send",
+        "extraArgs": [
+          "\"decimate_population\"",
+          "[100]"
+        ]
+      }
+    },
+    "frmBuildings": {
+      "element": {
+        "state": "'normal'",
+        "frameSize": "(-0.25, 0.0, -0.6, 0.6)",
+        "frameColor": "(0.0, 0.0, 0.0, 0.4)",
+        "pos": "LPoint3f(0, 0, 0.2)",
+        "transparency": "0",
+        "canvasSize": "(-0.11, 0.11, -1.5, 0.0)",
+        "scrollBarWidth": "0.03",
+        "horizontalScroll_transparency": "0",
+        "horizontalScroll_decButton_transparency": "0",
+        "horizontalScroll_incButton_transparency": "0",
+        "horizontalScroll_thumb_transparency": "0",
+        "verticalScroll_transparency": "0",
+        "verticalScroll_decButton_transparency": "0",
+        "verticalScroll_incButton_transparency": "0",
+        "verticalScroll_thumb_transparency": "0"
+      },
+      "type": "DirectScrolledFrame",
+      "parent": "a2dRightCenter",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {}
+    },
+    "btnQuit": {
+      "element": {
+        "relief": "5",
+        "frameColor": "(0.2, 0.8, 1.0, 0.75)",
+        "pos": "LPoint3f(-0.15, 0, -0.05)",
+        "scale": "LVecBase3f(0.05, 0.05, 0.05)",
+        "transparency": "0",
+        "text": "['Quit Game']",
+        "command": "'base.messenger.send'",
+        "extraArgs": "['\"ask_for_quit\"']"
+      },
+      "type": "DirectButton",
+      "parent": "a2dTopRight",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {
+        "pressEffect": 1,
+        "command": "base.messenger.send",
+        "extraArgs": [
+          "\"ask_for_quit\""
+        ]
+      }
+    }
+  }
+}

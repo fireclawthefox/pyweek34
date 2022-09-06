@@ -1,0 +1,94 @@
+{
+  "ProjectVersion": "0.2a",
+  "EditorConfig": {
+    "usePixel2D": false,
+    "canvasSize": "(-960.0, 960.0, -540.0, 540.0)"
+  },
+  "ComponentList": {
+    "btnStart": {
+      "element": {
+        "relief": "1",
+        "frameColor": "(0.8, 0.8, 0.8, 0.0)",
+        "pos": "LPoint3f(0, 0, -0.25)",
+        "scale": "LVecBase3f(0.1, 0.1, 0.1)",
+        "transparency": "1",
+        "image": "'/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Button.png'",
+        "text": "['Start']",
+        "pressEffect": "0",
+        "image0_image": "'/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Button.png'",
+        "image0_pos": "LPoint3f(0, 0, 0)",
+        "image0_hpr": "LVecBase3f(0, 0, 0)",
+        "image0_scale": "LVecBase3f(1, 1, 1)",
+        "image0_color": "LVecBase4f(1, 1, 1, 1)",
+        "image1_image": "'/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Button.png'",
+        "image1_pos": "LPoint3f(0, 0, 0)",
+        "image1_hpr": "LVecBase3f(0, 0, 0)",
+        "image1_scale": "LVecBase3f(1, 1, 1)",
+        "image1_color": "LVecBase4f(1, 1, 1, 1)",
+        "image2_image": "'/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Button.png'",
+        "image2_pos": "LPoint3f(0, 0, 0)",
+        "image2_hpr": "LVecBase3f(0, 0, 0)",
+        "image2_scale": "LVecBase3f(1, 1, 1)",
+        "image2_color": "LVecBase4f(1, 1, 1, 1)",
+        "image3_image": "'/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Button.png'",
+        "image3_pos": "LPoint3f(0, 0, 0)",
+        "image3_hpr": "LVecBase3f(0, 0, 0)",
+        "image3_scale": "LVecBase3f(1, 1, 1)",
+        "image3_color": "LVecBase4f(1, 1, 1, 1)",
+        "text0_text": "'Start'",
+        "text0_align": "2"
+      },
+      "type": "DirectButton",
+      "parent": "a2dTopLeft",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {
+        "pressEffect": 0,
+        "command": "base.messenger.send",
+        "extraArgs": [
+          "\"game_start\""
+        ],
+        "image": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Button.png"
+      }
+    },
+    "btnExit": {
+      "element": {
+        "relief": "1",
+        "frameColor": "(0.8, 0.8, 0.8, 0.0)",
+        "pos": "LPoint3f(0, 0, -0.5)",
+        "scale": "LVecBase3f(0.1, 0.1, 0.1)",
+        "transparency": "1",
+        "image": "'/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Button.png'",
+        "text": "'button'"
+      },
+      "type": "DirectButton",
+      "parent": "a2dTopLeft",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {
+        "pressEffect": 1,
+        "command": "base.messenger.send",
+        "extraArgs": [
+          "\"game_quit\""
+        ],
+        "image": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Button.png"
+      }
+    },
+    "frmBackground": {
+      "element": {
+        "frameSize": "(-1.777, 1.77777, -1.0, 1.0)",
+        "frameColor": "(0.0, 0.0, 0.0, 1.0)",
+        "pos": "LPoint3f(0, 0, 1)",
+        "transparency": "0",
+        "image": "'/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/sky.png'"
+      },
+      "type": "DirectFrame",
+      "parent": "a2dBottomCenter",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {
+        "image": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/sky.png"
+      }
+    }
+  }
+}

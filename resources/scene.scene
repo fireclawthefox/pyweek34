@@ -1,0 +1,182 @@
+{
+  "ProjectVersion": "0",
+  "Scene": {
+    "1|ground": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "ground",
+      "pos": "LPoint3f(0, 0, -28.9166)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Ground.bam"
+    },
+    "2|farm1": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "farm1",
+      "pos": "LPoint3f(36.5471, -107.427, -37.268)",
+      "hpr": "LVecBase3f(-0.980231, -3.32869, -5.8968)",
+      "scale": "LVecBase3f(0.20291, 0.20291, 0.20291)",
+      "filepath": "assets/Farm.bam"
+    },
+    "3|farm2": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "farm2",
+      "pos": "LPoint3f(50.247, -102.531, -36.377)",
+      "hpr": "LVecBase3f(-0.980231, -3.32869, -5.8968)",
+      "scale": "LVecBase3f(0.24569, 0.24569, 0.24569)",
+      "filepath": "assets/Farm.bam"
+    },
+    "4|farm3": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "farm3",
+      "pos": "LPoint3f(45.9533, -89.2577, -37.3652)",
+      "hpr": "LVecBase3f(-0.980231, -3.32869, -5.8968)",
+      "scale": "LVecBase3f(0.20291, 0.20291, 0.20291)",
+      "filepath": "assets/Farm.bam"
+    },
+    "5|PerspectiveLens_camera_1": {
+      "object_type": "camera",
+      "parent": "scene_model_parent",
+      "camera_type": "PerspectiveLens",
+      "pos": "LPoint3f(-0.707939, -242.976, 16.4994)",
+      "hpr": "LVecBase3f(0, -16.3497, 0)",
+      "fov": "LVecBase2f(70, 70)"
+    },
+    "6|WaterRefinary1": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "WaterRefinary1",
+      "pos": "LPoint3f(-34.2752, -105.393, -41.515)",
+      "hpr": "LVecBase3f(0, 1.79922, -4.36619)",
+      "scale": "LVecBase3f(0.151845, 0.151845, 0.151845)",
+      "filepath": "assets/WaterRefinery.bam"
+    },
+    "7|WaterRefinary2": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "WaterRefinary2",
+      "pos": "LPoint3f(-37.2477, -114.962, -41.5149)",
+      "hpr": "LVecBase3f(0, 1.79922, -4.36619)",
+      "scale": "LVecBase3f(0.151845, 0.151845, 0.151845)",
+      "filepath": "assets/WaterRefinery.bam"
+    },
+    "8|WaterRefinary3": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "WaterRefinary3",
+      "pos": "LPoint3f(-42.6968, -99.6699, -41.5149)",
+      "hpr": "LVecBase3f(0, 1.79922, -4.36619)",
+      "scale": "LVecBase3f(0.151845, 0.151845, 0.151845)",
+      "filepath": "assets/WaterRefinery.bam"
+    },
+    "9|Army": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "Army",
+      "pos": "LPoint3f(-30.5898, -78.6266, -39.5378)",
+      "hpr": "LVecBase3f(-0.469384, 6.85884, -0.257784)",
+      "scale": "LVecBase3f(1.5423, 1.5423, 1.5423)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Army.bam"
+    },
+    "10|factory1": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "factory1",
+      "pos": "LPoint3f(31.3696, -68.9401, -38.6658)",
+      "hpr": "LVecBase3f(-34.6019, 0, 0)",
+      "scale": "LVecBase3f(2.14742, 2.14742, 2.14742)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Factory.bam"
+    },
+    "11|factory2": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "factory2",
+      "pos": "LPoint3f(29.524, -59.899, -38.366)",
+      "hpr": "LVecBase3f(-34.6019, 0, 0)",
+      "scale": "LVecBase3f(2.14742, 2.14742, 2.14742)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Factory.bam"
+    },
+    "12|livingQuarters1": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "livingQuarters1",
+      "pos": "LPoint3f(0.626662, -99.9173, -39.7591)",
+      "scale": "LVecBase3f(0.193179, 0.193179, 0.193179)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/LivingQuarters.bam"
+    },
+    "13|livingQuarters2": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "livingQuarters2",
+      "pos": "LPoint3f(11.2904, -107.06, -39.1815)",
+      "scale": "LVecBase3f(0.193179, 0.193179, 0.193179)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/LivingQuarters.bam"
+    },
+    "14|livingQuarters5": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "livingQuarters5",
+      "pos": "LPoint3f(11.173, -92.773, -39.576)",
+      "scale": "LVecBase3f(0.193179, 0.193179, 0.193179)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/LivingQuarters.bam"
+    },
+    "15|livingQuarters4": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "livingQuarters4",
+      "pos": "LPoint3f(-9.8066, -92.2132, -40.0718)",
+      "scale": "LVecBase3f(0.193179, 0.193179, 0.193179)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/LivingQuarters.bam"
+    },
+    "16|livingQuarters3": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "livingQuarters3",
+      "pos": "LPoint3f(-9.68948, -107.9, -40.0771)",
+      "scale": "LVecBase3f(0.193179, 0.193179, 0.193179)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/LivingQuarters.bam"
+    },
+    "17|mine1": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "mine1",
+      "pos": "LPoint3f(-66.3686, 23.8428, -16.7237)",
+      "scale": "LVecBase3f(1.60912, 1.60912, 1.60912)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Mine.bam"
+    },
+    "18|mine2": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "mine2",
+      "pos": "LPoint3f(-126.138, -3.834, -19.254)",
+      "hpr": "LVecBase3f(88.4176, 0, 0)",
+      "scale": "LVecBase3f(1.60912, 1.60912, 1.60912)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Mine.bam"
+    },
+    "19|tower1": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "tower1",
+      "pos": "LPoint3f(101.947, 112.412, -11.3307)",
+      "scale": "LVecBase3f(2.03685, 2.03685, 2.03685)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Tower.bam"
+    },
+    "20|tower2": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "tower2",
+      "pos": "LPoint3f(-62.7124, 58.8314, 1.80379)",
+      "scale": "LVecBase3f(2.03685, 2.03685, 2.03685)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Tower.bam"
+    },
+    "21|shield": {
+      "object_type": "model",
+      "parent": "scene_model_parent",
+      "name": "shield",
+      "pos": "LPoint3f(0.111017, -17.618, -30.6882)",
+      "scale": "LVecBase3f(4.40348, 4.40348, 4.40348)",
+      "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Shield.bam"
+    }
+  }
+}

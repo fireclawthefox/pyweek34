@@ -1,0 +1,45 @@
+{
+  "ProjectVersion": "0.2a",
+  "EditorConfig": {
+    "usePixel2D": false,
+    "canvasSize": "(-960.0, 960.0, -540.0, 540.0)"
+  },
+  "ComponentList": {
+    "btnBuilding": {
+      "element": {
+        "relief": "1",
+        "frameSize": "(-1.0, 1.0, -1.0, 1.0)",
+        "pos": "LPoint3f(0, 0, 0)",
+        "hpr": "LVecBase3f(0, 0, 0)",
+        "scale": "LVecBase3f(0.1, 0.1, 0.1)",
+        "transparency": "0",
+        "text": "'button'"
+      },
+      "type": "DirectButton",
+      "parent": "root",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {
+        "pressEffect": 1,
+        "command": "base.messenger.send",
+        "extraArgs": []
+      }
+    },
+    "wbBuildingTime": {
+      "element": {
+        "state": "'normal'",
+        "frameColor": "(0.0, 0.5, 1.0, 0.8)",
+        "pos": "LPoint3f(0, 0, 0)",
+        "transparency": "0",
+        "barColor": "(0.0, 0.0, 1.0, 1.0)",
+        "text": "'0%'",
+        "text0_scale": "(0.1, 0.1)"
+      },
+      "type": "DirectWaitBar",
+      "parent": "btnBuilding",
+      "command": null,
+      "extraArgs": null,
+      "extraOptions": {}
+    }
+  }
+}
