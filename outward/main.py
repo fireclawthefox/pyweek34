@@ -39,7 +39,7 @@ class Main(ShowBase, CoreFSM):
         # PBR SHADING
         #
         pipeline = simplepbr.init()
-        pipeline.use_normals_map = True
+        pipeline.use_normals_map = False
         pipeline.enable_shadows = True
 
         #
@@ -57,6 +57,7 @@ class Main(ShowBase, CoreFSM):
         # Enhance font readability
         DGG.setDefaultFont(loader.loadFont("assets/TheTravelingFoxText.otf"))
         DGG.getDefaultFont().setPixelsPerUnit(96)
+        DGG.setDefaultClickSound(loader.loadSfx("assets/freesound_jummit_soft-ui-button-click_license_CC0.ogg"))
 
         #
         # CONFIGURATION LOADING

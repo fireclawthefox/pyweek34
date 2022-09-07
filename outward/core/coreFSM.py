@@ -1,12 +1,15 @@
 # Panda3D imoprts
 from direct.fsm.FSM import FSM
-from gui.startMenu import GUI as StartMenuHandler
-from core.coreGame import CoreGame
 from direct.gui.DirectLabel import DirectLabel
 from direct.gui.DirectDialog import OkDialog
 from panda3d.core import TextNode
+
+from gui.startMenu import GUI as StartMenuHandler
+from core.coreGame import CoreGame
 from story import STORY_TEXT
+
 import sys
+import random
 
 class CoreFSM(FSM):
     def __init__(self, fsm_name):
@@ -14,7 +17,31 @@ class CoreFSM(FSM):
         self.titleFont = loader.loadFont("assets/Warszawa.otf")
         self.titleFont.setPixelsPerUnit(100)
 
+        self.menu_music = loader.loadMusic("assets/opengameart_brandon75689_ambientmain_license_CC0.ogg")
+        self.menu_music.setLoop(True)
+
+        self.game_tracks = [
+            loader.loadMusic("assets/opengameart_yd_caravan_license_CC0.ogg"),
+            loader.loadMusic("assets/opengameart_yd_MyVeryOwnDeadShip_license_CC0.ogg"),
+            loader.loadMusic("assets/opengameart_vitalezzz_pulsar_license_CCBY4.0.ogg"),
+            loader.loadMusic("assets/opengameart_vitalezzz_solar_sail_license_CCBY4.0.ogg"),
+            loader.loadMusic("assets/opengameart_vitalezzz_star_on_the_horizon_license_CCBY4.0.ogg")
+        ]
+        self.current_music = random.choice(self.game_tracks)
+
+    def music_playlist_task(self, task):
+        if self.current_music.status() == self.current_music.PLAYING:
+            return task.cont
+
+        last_music = self.current_music
+        while self.current_music == last_music:
+            self.current_music = random.choice(self.game_tracks)
+
+        self.current_music.play()
+        return task.cont
+
     def enterStartMenu(self):
+        self.menu_music.play()
         self.startMenu = StartMenuHandler()
         self.startMenu.btnStart["text_align"] = TextNode.ALeft
         self.startMenu.btnStart["text_fg"] = (1, 1, 1, 1)
@@ -51,6 +78,7 @@ class CoreFSM(FSM):
         self.accept("game_quit", base.userExit)
 
     def exitStartMenu(self):
+        self.menu_music.stop()
         self.startMenu.destroy()
         self.startMenu = None
         self.background.destroy()
@@ -59,11 +87,13 @@ class CoreFSM(FSM):
         self.request(next_state)
 
     def enterStory(self):
+        self.current_music.play()
         self.story = OkDialog(
             text=STORY_TEXT,
             frameColor=(0.2, 0.8, 1, 1),
             command=self.ok,
             extraArgs=["Main"])
+        base.taskMgr.add(self.music_playlist_task, "playlist")
 
     def exitStory(self):
         self.story.destroy()
@@ -77,3 +107,4 @@ class CoreFSM(FSM):
     def exitMain(self):
         # cleanup for application code
         self.coreGame.destroy()
+        base.taskMgr.remove("playlist")

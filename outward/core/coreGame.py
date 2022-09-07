@@ -45,6 +45,8 @@ class CoreGame(DirectObject):
 
         self.dlg_game_over = None
 
+        self.notification_sound = loader.load_sfx("assets/freesound_yfjesse_notification-sound_license_CC0.wav")
+
         self.notification_fade_in = LerpColorScaleInterval(
             self.mainView.lblNotification,
             0.1,
@@ -59,9 +61,10 @@ class CoreGame(DirectObject):
         self.player_economy = EconomyStats()
         self.player_economy.is_player_stats = True
 
-        self.opponents = [
-            Opponent()
-        ]
+        self.opponents = []
+
+        for i in range(random.randint(1, 3)):
+            self.opponents.append(Opponent())
 
         self.eventHandler = EventHandler()
 
@@ -82,6 +85,14 @@ class CoreGame(DirectObject):
 
         self.scene_root = render.attachNewNode("SceneRoot")
         self.scene = Scene(self.scene_root)
+
+
+        #self.scene.DirectionalLight_1.set_color(100, 100, 100, 1)
+        #lens = self.scene.DirectionalLight_1.node().get_lens()
+        #lens.setNearFar(1, 250)
+        #lens.setFilmSize(300, 300)
+        #self.scene.DirectionalLight_1.node().setShadowCaster(True, 1024, 1024)
+        #self.scene_root.setShaderAuto(True)
 
         #self.scene.ground.find("**/Sun").setColor(10,10,10,1)
         #sun = self.scene.ground.find("**/Sun").find("**/Sun").node()
@@ -263,6 +274,7 @@ class CoreGame(DirectObject):
             taskMgr.remove("NotificationFadeOut")
         else:
             self.notification_fade_in.start()
+            self.notification_sound.play()
 
         self.mainView.lblNotification["text"] = event_text
         self.mainView.lblNotification.resetFrameSize()

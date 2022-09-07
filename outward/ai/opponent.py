@@ -26,22 +26,23 @@ class Opponent(EconomyStats):
         dt = globalClock.get_dt()
         self.wait_build_time += dt
 
-        building_id = random.choice(list(self.buildingsManager.buildings.keys()))
+        for i in range(random.randint(1, 5)):
+            building_id = random.choice(list(self.buildingsManager.buildings.keys()))
 
-        building_counts = self.get_building_counts()
-        max_buildings_reached = []
-        for building_id, count in building_counts.items():
-            if self.max_building_numbers[building_id] <= count:
-                max_buildings_reached.append(building_id)
+            building_counts = self.get_building_counts()
+            max_buildings_reached = []
+            for building_id, count in building_counts.items():
+                if self.max_building_numbers[building_id] <= count:
+                    max_buildings_reached.append(building_id)
 
-        if self.buildingsManager.can_build_building(building_id, self, max_buildings_reached) \
-        and self.will_build_time <= self.wait_build_time:
-            self.buildingsManager.build_building_ai(building_id)
-            self.ores -= self.buildingsManager.get_required_resources(building_id)
-            self.wait_build_time = 0
+            if self.buildingsManager.can_build_building(building_id, self, max_buildings_reached) \
+            and self.will_build_time <= self.wait_build_time:
+                self.buildingsManager.build_building_ai(building_id)
+                self.ores -= self.buildingsManager.get_required_resources(building_id)
+                self.wait_build_time = 0
 
-        buildings = self.buildingsManager.update_building_time_ai()
-        if buildings and len(buildings) > 0:
-            for building in buildings:
-                self.add_building(building)
+            buildings = self.buildingsManager.update_building_time_ai()
+            if buildings and len(buildings) > 0:
+                for building in buildings:
+                    self.add_building(building)
 
