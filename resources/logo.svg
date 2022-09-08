@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (2ed6d7ae0b, 2022-08-22, custom)"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="../755be46c/icon16.png"
+   inkscape:export-xdpi="3.04"
+   inkscape:export-ydpi="3.04"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="false"
+     showguides="false"
+     inkscape:zoom="0.4554171"
+     inkscape:cx="161.39051"
+     inkscape:cy="416.10207"
+     inkscape:window-width="1846"
+     inkscape:window-height="1016"
+     inkscape:window-x="74"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter1229"
+       x="-0.55433126"
+       y="-0.55433126"
+       width="2.1086625"
+       height="2.1086625">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="64.265791"
+         id="feGaussianBlur1231" />
+    </filter>
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask1262">
+      <circle
+         style="fill:#ffffff;stroke:#ffffff;stroke-width:0;stroke-linecap:round"
+         id="circle1264"
+         cx="-186.59476"
+         cy="328.99124"
+         r="182.32898"
+         transform="scale(-1,1)"
+         inkscape:label="Planet" />
+    </mask>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter1272"
+       x="-0.23887126"
+       y="-0.23887126"
+       width="1.4777425"
+       height="1.4777425">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="16.217358"
+         id="feGaussianBlur1274" />
+    </filter>
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask1283">
+      <ellipse
+         style="fill:#552200;stroke:#ffffff;stroke-width:0;stroke-linecap:round"
+         id="circle1285"
+         cx="-193.88144"
+         cy="318.24597"
+         transform="scale(-1,1)"
+         inkscape:label="Planet"
+         rx="106.37916"
+         ry="108.37491" />
+    </mask>
+  </defs>
+  <g
+     inkscape:label="TheBig"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path111-3"
+       style="fill:#fdffbe;stroke:#ffffff;stroke-width:0;stroke-linecap:round;fill-opacity:1"
+       inkscape:label="Sun"
+       d="M 511.58398 -0.0859375 C 459.58033 30.450043 421.37622 79.12899 349.44531 83.462891 A 226.78398 226.78398 0 0 0 237.96094 53.537109 A 226.78398 226.78398 0 0 0 106.17969 96.71875 C 69.931589 86.349047 39.122155 52.042132 6.7792969 24.484375 C 38.376863 58.235596 69.392103 92.045994 69.460938 129.0293 A 226.78398 226.78398 0 0 0 15.021484 240.98828 A 207.81741 207.81741 0 0 1 211.71289 99.691406 A 207.81741 207.81741 0 0 1 419.53125 307.50781 A 207.81741 207.81741 0 0 1 284.05469 501.79102 A 226.78398 226.78398 0 0 0 401.93945 435.64844 C 452.39548 451.17171 475.76017 480.60572 508.8418 505.05078 C 481.8687 472.2578 452.0659 447.8214 430.30469 399.63477 A 226.78398 226.78398 0 0 0 464.74609 280.32031 A 226.78398 226.78398 0 0 0 424.22852 151.67969 C 430.46658 80.450885 475.87662 44.55884 511.58398 -0.0859375 z " />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="TheRed">
+    <circle
+       style="fill:#552200;stroke:#ffffff;stroke-width:0;stroke-linecap:round"
+       id="path111"
+       cx="-202.07608"
+       cy="313.14886"
+       r="194.92332"
+       transform="scale(-1,1)"
+       inkscape:label="Planet" />
+    <circle
+       style="mix-blend-mode:normal;fill:#3d1900;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-opacity:0;filter:url(#filter1229)"
+       id="path1227"
+       cx="165.38417"
+       cy="355.42938"
+       r="139.1207"
+       transform="matrix(1.0690748,0,0,1.0690748,2.5923256,-38.567397)"
+       mask="url(#mask1262)" />
+    <circle
+       style="mix-blend-mode:normal;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:55.08442752;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter1272)"
+       id="circle1266"
+       cx="165.38417"
+       cy="355.42938"
+       r="139.1207"
+       transform="matrix(1.832345,0,0,1.798602,-153.1816,-259.24897)"
+       mask="url(#mask1283)" />
+  </g>
+</svg>
