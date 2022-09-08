@@ -18,6 +18,8 @@ from ai.opponent import Opponent
 from scene.scene import Scene
 from direct.gui import DirectGuiGlobals as DGG
 from direct.gui.DirectDialog import OkDialog, YesNoDialog
+from direct.gui.DirectLabel import DirectLabel
+from DirectGuiExtension.DirectTooltip import DirectTooltip
 
 class CoreGame(DirectObject):
     def __init__(self):
@@ -41,8 +43,26 @@ class CoreGame(DirectObject):
         self.mainView.frmEconomy["text_scale"] = (0.05, 0.05, 0.05)
         self.mainView.frmEconomy["text_pos"] = (-1, 0.45, 0)
 
+        self.event_messages = []
+
+        self.tooltip = DirectTooltip(
+            scale=0.2,
+            text_scale=0.2,
+            frameColor=(0.7, 0.9, 1, 0.8),
+            pad=(.1,.1))
+
+        self.mainView.btnScout.bind(DGG.ENTER, self.tooltip.show, ["Send scouts to find resources (requires 10 water and 10 food)"])
+        self.mainView.btnScout.bind(DGG.EXIT, self.tooltip.hide)
+
+        self.mainView.btnTrade.bind(DGG.ENTER, self.tooltip.show, ["Send traders to trade ore (requires 5-20 water and 5-20 food)"])
+        self.mainView.btnTrade.bind(DGG.EXIT, self.tooltip.hide)
+
+        self.mainView.btnAttackOpponent.bind(DGG.ENTER, self.tooltip.show, ["Lower your defense temporarely and attack an opponent\nIf you got defeated you loose the 5 def permanently!"])
+        self.mainView.btnAttackOpponent.bind(DGG.EXIT, self.tooltip.hide)
+
         self.mainView.hide()
 
+        self.yesNo = None
         self.dlg_game_over = None
 
         self.notification_sound = loader.load_sfx("assets/freesound_yfjesse_notification-sound_license_CC0.wav")
@@ -148,10 +168,36 @@ class CoreGame(DirectObject):
         self.accept("send_scout", self.send_scout)
         self.accept("send_trader", self.send_trader)
         self.accept("decimate_population", self.decimate_population)
+        self.accept("attack_opponent", self.player_attacks)
 
         self.accept("remove_building_event", self.remove_building)
+        self.accept("attack_player", self.got_attacked)
 
         self.accept("ask_for_quit", self.ask_for_quit)
+
+        self.accept("1", self.print_all_stats)
+        self.accept("2", self.print_building_info)
+        self.accept("7", self.game_over)
+        self.accept("8", self.show_end_story, [1, True])
+        self.accept("9", self.show_end_story, [1, False])
+
+    def print_all_stats(self):
+        print(self.player_economy)
+        for opp in self.opponents:
+            print(opp)
+
+    def print_building_info(self):
+        print(self.player_economy.buildings)
+        for building in self.player_economy.buildings:
+            print(building)
+
+        building_counts = self.player_economy.get_building_counts()
+        print(building_counts)
+        print(self.get_max_buildings_reached())
+
+        for building_id, count in building_counts.items():
+            print(f"Max buildings of: {building_id}={count}/{self.max_building_numbers[building_id]}")
+
 
     def game_over(self):
         self.hide_gui()
@@ -160,13 +206,15 @@ class CoreGame(DirectObject):
             self.dlg_game_over = OkDialog(
                 text=self.get_game_over_text(has_won),
                 text_fg=(1,1,1,1),
-                command=self.quit,
+                command=self.show_end_story,
+                extraArgs=[has_won],
                 frameColor=(0.2,0.8,1,0.75))
         else:
             self.dlg_game_over = OkDialog(
                 text=self.get_game_over_text(has_won),
                 text_fg=(1,1,1,1),
-                command=self.quit,
+                command=self.show_end_story,
+                extraArgs=[has_won],
                 frameColor=(0.8,0.4,0.2,0.75))
 
     def get_game_over_text(self, has_won):
@@ -193,6 +241,15 @@ class CoreGame(DirectObject):
             command=self.quit,
             frameColor=(0.2,0.8,1,0.75))
 
+    def show_end_story(self, args, has_won):
+        if self.dlg_game_over:
+            self.dlg_game_over.destroy()
+        if has_won:
+            base.messenger.send("show_end_story_victory")
+        else:
+            base.messenger.send("show_end_story_defeated")
+
+
     def quit(self, args=None):
         if self.dlg_game_over:
             self.dlg_game_over.destroy()
@@ -205,6 +262,8 @@ class CoreGame(DirectObject):
         taskMgr.remove("scouting_in_progress")
         taskMgr.remove("trade_in_progress")
         taskMgr.remove("world task")
+        for lbl in self.event_messages:
+            lbl.destroy()
         self.buildingsManager.destroy()
         self.economyDisplay.destroy()
         self.mainView.destroy()
@@ -222,8 +281,9 @@ class CoreGame(DirectObject):
         # Calculate building time
         buildings = self.buildingsManager.update_building_time()
         if buildings and len(buildings) > 0:
-            self.show_event("Buildings finished")
+            self.show_event("Building/s finished")
             for building in buildings:
+                print(f"add: {building.building_id}")
                 self.player_economy.add_building(building)
                 self.show_building(building)
 
@@ -243,8 +303,7 @@ class CoreGame(DirectObject):
         self.eventHandler.check_events([self.player_economy] + self.opponents)
 
         # update the building UI
-        max_buildings_reached = self.get_max_buildings_reached()
-        self.buildingsManager.update_building_buttons(self.player_economy, max_buildings_reached)
+        self.buildingsManager.update_building_buttons(self.player_economy, self.get_max_buildings_reached())
 
         self.economyDisplay.update_economy_stats(self.player_economy)
 
@@ -276,6 +335,24 @@ class CoreGame(DirectObject):
             self.notification_fade_in.start()
             self.notification_sound.play()
 
+        scale = 0.035
+
+        z = -scale * (len(self.event_messages) + 1)
+        self.event_messages.append(
+            DirectLabel(
+                text=event_text,
+                text_scale=scale,
+                text_fg=(1,1,1,1),
+                text_align=TextNode.ALeft,
+                frameColor=(0,0,0,0),
+                pos=(0,0,z),
+                parent=self.mainView.frmEventLog.canvas
+            )
+        )
+
+        cs = self.mainView.frmEventLog["canvasSize"]
+        self.mainView.frmEventLog["canvasSize"] = [cs[0], cs[2],z, cs[3]]
+
         self.mainView.lblNotification["text"] = event_text
         self.mainView.lblNotification.resetFrameSize()
 
@@ -298,11 +375,11 @@ class CoreGame(DirectObject):
             self.buildingsManager.update_building_buttons(self.player_economy, max_buildings_reached)
 
     def player_has_won(self):
-        has_won = True
         player_strength = self.player_economy.get_strength()
         for opponent in self.opponents:
-            has_won = player_strength >= opponent.get_strength()
-        return has_won
+            if player_strength < opponent.get_strength():
+                return False
+        return True
 
     def show_building(self, building):
         building_id = building.building_id
@@ -357,6 +434,7 @@ class CoreGame(DirectObject):
 
     def remove_building(self, building):
         building_id = building.building_id
+        print(f"REMOVE BUILDING: {building_id}")
         if building_id == "livingQuarters":
             if not self.scene.livingQuarters5.isHidden():
                 self.scene.livingQuarters5.hide()
@@ -406,6 +484,52 @@ class CoreGame(DirectObject):
 
         self.buildingsManager.update_building_buttons(self.player_economy, self.get_max_buildings_reached())
 
+    def got_attacked(self, opponent):
+        notification = "An opponent attacked but got defeated!"
+        if opponent.defense_strength > self.player_economy.defense_strength:
+            self.player_economy.population -= 5
+            self.player_economy.water -= 10
+            self.player_economy.food -= 10
+            self.player_economy.general_goods -= 10
+            self.player_economy.evaluate()
+
+            notification = "An opponent attacked, you lost population and goods!"
+        else:
+            opponent.defense_strength -= 5
+
+        self.show_event(notification)
+
+    def player_attacks(self):
+        self.mainView.btnAttackOpponent["state"] == DGG.DISABLED
+        if taskMgr.hasTaskNamed("attack_in_progress"):
+            return
+        self.show_event(f"Your army is on the way to attack an opponent!")
+        taskMgr.doMethodLater(2*60, self.attack_opponent, "attack_in_progress", extraArgs=[])
+        self.player_economy.defense_strength -= 5
+        self.mainView.btnAttackOpponent["state"] = DGG.DISABLED
+        fc = self.mainView.btnAttackOpponent["frameColor"]
+        self.mainView.btnAttackOpponent["frameColor"] = (fc[0] * 0.5, fc[1] * 0.5, fc[2] * 0.5, fc[3])
+
+    def attack_opponent(self):
+        opponent = random.choice(self.opponents)
+
+        notification = "Your attack got warded!"
+        if opponent.defense_strength < self.player_economy.defense_strength + 5:
+            opponent.population -= 5
+            opponent.water -= 10
+            opponent.food -= 10
+            opponent.general_goods -= 10
+            opponent.evaluate()
+
+            self.player_economy.defense_strength += 5
+
+            notification = "You successfully attacked an opponent!"
+
+        self.show_event(notification)
+
+        self.mainView.btnAttackOpponent["state"] = DGG.NORMAL
+        self.mainView.btnAttackOpponent["frameColor"] = (0.2, 0.8, 1.0, 0.75)
+
     def send_scout(self):
         if taskMgr.hasTaskNamed("scouting_in_progress"):
             return
@@ -419,7 +543,7 @@ class CoreGame(DirectObject):
         factor = random.uniform(0.5, 2)
 
         self.player_economy.water -= 10
-        self.player_economy.water -= 10
+        self.player_economy.food -= 10
 
         text = "Scout come back with "
 
@@ -475,6 +599,17 @@ class CoreGame(DirectObject):
         self.show_event(f"Trader Came back with {new_ores} ore")
 
     def decimate_population(self, amount):
+        self.yesNo = YesNoDialog(
+            text=f"Really send away {amount} people?",
+            command=self.really_decimate_population,
+            extraArgs=[amount]
+        )
+
+    def really_decimate_population(self, answer, amount):
+        self.yesNo.destroy()
+        self.yesNo = None
+        if answer != 1:
+            return
         if self.player_economy.population > amount:
             self.player_economy.population -= amount
         else:
