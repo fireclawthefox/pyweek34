@@ -66,9 +66,9 @@ class Main(ShowBase, CoreFSM):
         # check if particles should be enabled
         # NOTE: If you use the internal physics engine, this always has
         #       to be enabled!
-        particles = ConfigVariableBool("particles-enabled", True).getValue()
-        if particles:
-            self.enableParticles()
+        #particles = ConfigVariableBool("particles-enabled", True).getValue()
+        #if particles:
+        #    self.enableParticles()
 
         # automatically safe configuration at application exit
         base.exitFunc = config.write_config
