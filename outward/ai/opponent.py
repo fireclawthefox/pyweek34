@@ -46,14 +46,16 @@ class Opponent(EconomyStats):
         self.general_action_time += dt
 
         if self.wait_build_time >= self.will_build_time:
-            if self.food_production < self.population:
+            if self.food_production == 0 or self.food_production < self.population:
                 self.try_build("foodProduction")
-            if self.water_production < self.population:
+            if self.water_production == 0 or self.water_production < self.population:
                 self.try_build("waterProduction")
-            if self.ore_production <= 0:
+            if self.ore_production == 0 or self.ore_production <= 0:
                 self.try_build("mining")
             if self.general_goods_production < self.population:
                 self.try_build("genGoodFactory")
+            if self.population <= 100:
+                self.try_build("livingQuarters")
 
             # after the important buildings, try to build up to 4 random other buildings
             for i in range(random.randint(1, 4)):
