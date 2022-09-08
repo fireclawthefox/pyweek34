@@ -48,7 +48,7 @@ class BuildingsManager:
             z_pos, cs[3]]
 
     def can_build_building(self, building_id, economy_stats, max_buildings_reached):
-        return self.buildings[building_id].required_ore < economy_stats.ores \
+        return self.buildings[building_id].required_ore <= economy_stats.ores \
             and building_id not in max_buildings_reached \
             and building_id not in self.currently_built_buildings.keys()
 
@@ -68,8 +68,9 @@ class BuildingsManager:
 
     def update_building_time(self):
         finished_buildings = []
-        for building_id, elapsed_time in self.currently_built_buildings.items():
-            self.currently_built_buildings[building_id] += globalClock.get_dt()
+        dt = globalClock.get_dt()
+        for building_id in self.currently_built_buildings.keys():
+            self.currently_built_buildings[building_id] += dt
 
             et = self.currently_built_buildings[building_id]
 
@@ -83,8 +84,14 @@ class BuildingsManager:
                 btn.wbBuildingTime["value"] = 100
                 btn.wbBuildingTime.hide()
                 finished_buildings.append(self.buildings[building_id])
-        for building in finished_buildings:
-            del self.currently_built_buildings[building.building_id]
+
+        for b in finished_buildings:
+            print(f"removing {b.building_id} from built buildings")
+            del self.currently_built_buildings[b.building_id]
+
+        if len(finished_buildings) > 0:
+            for b in finished_buildings:
+                print(b.building_id)
         return finished_buildings
 
     def update_building_time_ai(self):

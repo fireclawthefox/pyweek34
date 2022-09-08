@@ -20,6 +20,7 @@ class EconomyStats:
     buildings:list[int] = field(default_factory=list)
 
     def get_strength(self) -> float:
+        self.evaluate()
         strength = self.population
         strength += self.food - self.population
         strength += self.water - self.population
@@ -27,7 +28,7 @@ class EconomyStats:
         strength += self.general_goods - self.population
         strength += self.ores
 
-        return strength
+        return strength * self.population / 1000
 
     def tick_stats_calculate(self):
         self.food += self.food_production
@@ -89,3 +90,24 @@ class EconomyStats:
 
         if self.is_player_stats:
             base.messenger.send("remove_building_event", [building])
+
+    def __str__(self):
+        t = f"""Stats:
+    population: {self.population}
+    food: {self.food}
+    water: {self.water}
+    goods: {self.general_goods}
+    ore: {self.ores}
+    defense: {self.defense_strength}
+
+    production
+    food: {self.food_production}
+    water: {self.water_production}
+    goods: {self.general_goods_production}
+    ore: {self.ore_production}
+
+buildings:
+"""
+        for b in self.buildings:
+            t += f"{b.building_id}\n"
+        return t
