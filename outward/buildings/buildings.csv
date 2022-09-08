@@ -1,9 +1,9 @@
 id,name,required_ore,image,tooltip,build_time_m,food_production,water_production,general_goods_production,ore_production,population,defense_strength
-livingQuarters,Living\nQuarters,15,living,"Adds population, building time {} Minutes",5,0,0,0,0,10,0
-foodProduction,Farm,10,farm,"Produces food, building time {} Minutes",2,75,0,0,0,0,0
-waterProduction,Water\nRefinery,10,water,"Produces Water, building time {} Minutes",2,0,75,0,0,0,0
-mining,Mine,0,mine,"Produces ores, building time {} Minutes",1,0,0,0,40,0,0
-genGoodFactory,Factory,10,factory,"Produces general goods, building time {} Minutes",4,0,0,100,0,0,0
-defenseTower,Tower,20,tower,"Enhance defense, building time {} Minutes",8,0,0,0,0,0,5
-defenseShield,Shield,25,shield,"Enhance defense, building time {} Minutes",10,0,0,0,0,0,10
-defenseArmy,Army,30,army,"Enhance defense, building time {} Minutes",12,0,0,0,0,0,15
+mining,Mine,10,mine,"Mines 40 ores/week, building time {} Minutes\nCost 10 Ores",1,0,0,0,40,0,0
+waterProduction,Water\nRefinery,10,water,"Produces 75 water/week, building time {} Minutes\nCost 10 Ores",2,0,75,0,0,0,0
+foodProduction,Farm,10,farm,"Produces 75 food/week, building time {} Minutes\nCost 10 Ores",2,75,0,0,0,0,0
+genGoodFactory,Factory,20,factory,"Produces 100 general goods/week, building time {} Minutes\nCost 20 Ores",4,0,0,100,0,0,0
+livingQuarters,Living\nQuarters,30,living,"Adds population, building time {} Minutes\nCost 30 Ores",5,0,0,0,0,10,0
+defenseTower,Tower,40,tower,"Enhance defense by 5, building time {} Minutes\nCost 40 Ores",2,0,0,0,0,0,5
+defenseShield,Shield,45,shield,"Enhance defense by 10, building time {} Minutes\nCost 45 Ores",4,0,0,0,0,0,10
+defenseArmy,Army,55,army,"Enhance defense by 15, building time {} Minutes\nCost 55 Ores",8,0,0,0,0,0,15
