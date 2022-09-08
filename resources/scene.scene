@@ -177,6 +177,23 @@
       "pos": "LPoint3f(0.111017, -17.618, -30.6882)",
       "scale": "LVecBase3f(4.40348, 4.40348, 4.40348)",
       "filepath": "/home/fireclaw/workspace/pyweeks/pyweek34/Project/outward/assets/Shield.bam"
+    },
+    "22|DirectionalLight_1": {
+      "object_type": "light",
+      "parent": "scene_model_parent",
+      "light_type": "DirectionalLight",
+      "name": "DirectionalLight_1",
+      "pos": "LPoint3f(-99.1269, -95.1613, 41.9214)",
+      "hpr": "LVecBase3f(327.706, -32.9727, -44.5136)",
+      "color": "LVecBase4f(1, 1, 1, 1)",
+      "shadow_caster": "True",
+      "shadow_buffer_size": "LVecBase2i(1024, 1024)",
+      "aspect_ratio": "1.0",
+      "fov": "LVecBase2f(30, 30)",
+      "film_size": "LVecBase2f(300, 300)",
+      "film_offset": "LVector2f(0, 0)",
+      "near": "1.0",
+      "far": "250.0"
     }
   }
 }
