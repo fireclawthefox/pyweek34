@@ -20,8 +20,8 @@ class EventHandler:
         self.current_time = 0
 
     def set_next_event_time(self):
-        # every 5-10 minutes an event will happen
-        self.next_event_time = random.uniform(5*60, 10*60)
+        # every few minutes an event will happen
+        self.next_event_time = random.uniform(2*60, 5*60)
 
     def check_events(self, economy_stats_list):
         dt = globalClock.get_dt()

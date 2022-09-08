@@ -1,9 +1,13 @@
 id,randomAffect,defensible,strength,text,population,food,water,general_goods,defense_strength,ores,buildingsLost
 AlienAttack,0,1,40,A tribe of aggressive aliens attacked!,-10,-100,-100,-100,-20,-10,1
-Earthquake,0,0,0,An earthquake occured!,-5,-50,-50,-50,-5,-2,1
+Earthquake,0,0,0,An earthquake occured!,-5,-50,-50,-50,-5,-20,1
 Riot,1,1,10,People rioted!,-15,0,0,-150,0,0,0
 SolarStorm,0,0,0,A heavy solar storm occurred!,-2,0,0,0,0,0,2
 SandStorm,0,0,0,A heavy sand storm occurred!,-1,0,0,0,0,0,1
 Explosion,1,0,0,A building exploded!,-2,0,0,-20,0,-5,1
 Strangers,1,0,0,People came to your base!,5,20,20,10,2,1,0
 Warriors,1,0,0,Some warriors like to stay!,1,5,5,1,5,0,0
+Warriors2,0,0,0,A bunch of fighers want to stay!,2,10,3,0,10,3,0
+Strangers2,0,0,0,Many people visit!,20,5,5,0,2,1,0
+Strangers3,0,0,0,Hungry strangers came by!,3,-3,-3,0,0,0,0
+Vulcano,0,0,0,A vulcano erupted,-10,-50,-50,-50,-5,-15,1
