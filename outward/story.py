@@ -18,3 +18,29 @@ But I trust in you, you'll be the one to save us!
 
 A Friend - 330 A.S.E.
 """
+
+STORY_TEXT_END_GOOD = """:VICTORY:
+Congratulations friend! You made it, you survived the red planet!
+
+I knew I've put my trusted in right one. Now out we go, out to new planets to
+conquer, planets that our civilisation can thrive on.
+
+We're heading to something great.
+As they once said, "the sky is the limit" but not for us, not this time.
+
+Let's just hope this galaxy is ready for us...
+
+:FIN:
+"""
+
+STORY_TEXT_END_BAD = """:DEFEAT:
+Argh how could they, beat us!? No, that can't be, let's get them again...
+
+But, we can't... Noooo, we're doomed!
+
+How could we loose against them? I thought I've got the right person at hand.
+
+Well I think it's time to part. Farwell... My friend...
+
+:FIN:
+"""

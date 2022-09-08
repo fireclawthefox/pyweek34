@@ -6,7 +6,7 @@ from panda3d.core import TextNode
 
 from gui.startMenu import GUI as StartMenuHandler
 from core.coreGame import CoreGame
-from story import STORY_TEXT
+from story import STORY_TEXT, STORY_TEXT_END_GOOD, STORY_TEXT_END_BAD
 
 import sys
 import random
@@ -103,8 +103,32 @@ class CoreFSM(FSM):
         self.coreGame = CoreGame()
         self.coreGame.game_start()
         self.accept("quit_game", self.request, ["StartMenu"])
+        self.accept("show_end_story_victory", self.request, ["StoryEndGood"])
+        self.accept("show_end_story_defeated", self.request, ["StoryEndBad"])
 
     def exitMain(self):
         # cleanup for application code
         self.coreGame.destroy()
         base.taskMgr.remove("playlist")
+
+    def enterStoryEndGood(self):
+        self.current_music.play()
+        self.story = OkDialog(
+            text=STORY_TEXT_END_GOOD,
+            frameColor=(0.2, 0.8, 1, 1),
+            command=self.ok,
+            extraArgs=["StartMenu"])
+
+    def exitStoryEndGood(self):
+        self.story.destroy()
+
+    def enterStoryEndBad(self):
+        self.current_music.play()
+        self.story = OkDialog(
+            text=STORY_TEXT_END_BAD,
+            frameColor=(0.1, 0.7, 0.9, 1),
+            command=self.ok,
+            extraArgs=["StartMenu"])
+
+    def exitStoryEndBad(self):
+        self.story.destroy()
