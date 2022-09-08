@@ -18,7 +18,7 @@ from panda3d.core import (
 
 class GUI:
     def __init__(self, rootParent=None):
-
+        
         self.frmStats = DirectScrolledFrame(
             state = 'normal',
             frameSize = (0.0, 0.5, -1.0, 0.0),
@@ -129,13 +129,37 @@ class GUI:
             frameColor = (0.2, 0.8, 1.0, 0.75),
             pos = LPoint3f(-0.64, 0, 0.07),
             scale = LVecBase3f(0.05, 0.05, 0.05),
-            text = ['Decimate Population by 100'],
+            text = ['Decimate Population by 50'],
             parent=self.frmEconomy,
             pressEffect=1,
             command=base.messenger.send,
-            extraArgs=["decimate_population",[100]],
+            extraArgs=["decimate_population",[50]],
         )
         self.btnRemovePopulation100.setTransparency(0)
+
+        self.frmEventLog = DirectScrolledFrame(
+            state = 'normal',
+            frameSize = (-0.0, 1.0, -0.45, 0.0),
+            frameColor = (0.0, 0.0, 0.0, 0.5),
+            pos = LPoint3f(-0.02, 0, 0.47),
+            canvasSize = (0.0, 0.8, -1.0, 0.0),
+            scrollBarWidth = 0.02,
+            parent=self.frmEconomy,
+        )
+        self.frmEventLog.setTransparency(0)
+
+        self.btnAttackOpponent = DirectButton(
+            relief = 5,
+            frameColor = (0.2, 0.8, 1.0, 0.75),
+            pos = LPoint3f(-0.35, 0, 0.36),
+            scale = LVecBase3f(0.05, 0.05, 0.05),
+            text = ['Attack Opponent'],
+            parent=self.frmEconomy,
+            pressEffect=1,
+            command=base.messenger.send,
+            extraArgs=["attack_opponent"],
+        )
+        self.btnAttackOpponent.setTransparency(0)
 
         self.frmBuildings = DirectScrolledFrame(
             state = 'normal',
