@@ -12,10 +12,10 @@ class Opponent(EconomyStats):
         self.buildingsManager = BuildingsManager()
 
         self.attack_time = 0
-        self.attack_delay = 2*60
+        self.attack_delay = 2 * 60
 
         self.general_action_time = 0
-        self.action_delay = 3*60
+        self.action_delay = 1.5 * 60
 
         self.max_building_numbers = {
             "livingQuarters":5,
@@ -71,7 +71,7 @@ class Opponent(EconomyStats):
             for building in buildings:
                 self.add_building(building)
 
-        if self.attack_time >= self.attack_delay and self.defense_strength > 5:
+        if self.attack_time >= self.attack_delay and self.defense_strength > 10:
             # attack player
             if random.randint(1,6) >= 5:
                 base.messenger.send("attack_player", [self])
@@ -82,24 +82,26 @@ class Opponent(EconomyStats):
 
         if self.general_action_time >= self.action_delay:
             # scouting
-            factor = random.uniform(0.5, 2)
-            self.water -= 10
-            self.water -= 10
-            if bool(random.getrandbits(1)):
-                # found water
-                self.water += round(10*factor)
-            if bool(random.getrandbits(1)):
-                # found food
-                self.food += round(10*factor)
-            if bool(random.getrandbits(1)):
-                # found ore
-                self.ores += round(10*factor)
+            if self.water > 10 and self.food > 10:
+                factor = random.uniform(0.5, 2)
+                self.water -= 10
+                self.food -= 10
+                if bool(random.getrandbits(1)):
+                    # found water
+                    self.water += round(10*factor)
+                if bool(random.getrandbits(1)):
+                    # found food
+                    self.food += round(10*factor)
+                if bool(random.getrandbits(1)):
+                    # found ore
+                    self.ores += round(10*factor)
 
             # did trading
             factor = random.uniform(0.5, 2)
-            self.water -= round(10*factor)
-            self.food -= round(10*factor)
-            self.ores += round(30*factor)
+            if self.water > round(10*factor) and self.food > round(10*factor):
+                self.water -= round(10*factor)
+                self.food -= round(10*factor)
+                self.ores += round(30*factor)
 
             self.general_action_time = 0
 
