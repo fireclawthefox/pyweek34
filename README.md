@@ -7,17 +7,19 @@ Your destination? The red planet! (at least for a short time)
 
 During your stay, you need to gather resources and people to survive your trip to other parts of the galaxy.
 
+## PyWeek
+This game was written within a few days for [PyWeek 34](https://pyweek.org/34/)<br/>
+More details can be found on its [entry page](https://pyweek.org/e/outward/)
 
-This game was written within a few days for [PyWeek 34](https://pyweek.org/34/)
 
-
-# Installation
+# Run the game
 
 ## binaries
 Will be available from the releases section soon
 
 ## python3
 Download python3 (3.10+ recommended)
+Download the repository (either via git or as zip) and navigate into it.
 
 install dependencies
 `pip install -r requirements.txt`
