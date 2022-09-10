@@ -23,6 +23,7 @@ install dependencies
 `pip install -r requirements.txt`
 
 run the game (from project root directory)
-```cd outward
+```shell
+cd outward
 python3 main.py
 ```
