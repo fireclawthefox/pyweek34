@@ -1,2 +1,3 @@
 panda3d
 DirectGuiExtension
+panda3d-simplepbr
