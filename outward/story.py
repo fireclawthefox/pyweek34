@@ -22,7 +22,7 @@ A Friend - 330 A.S.E.
 STORY_TEXT_END_GOOD = """:VICTORY:
 Congratulations friend! You made it, you survived the red planet!
 
-I knew I've put my trusted in right one. Now out we go, out to new planets to
+I knew I've put my trusted in the right one. Now out we go, out to new planets to
 conquer, planets that our civilisation can thrive on.
 
 We're heading to something great.
@@ -40,7 +40,9 @@ But, we can't... Noooo, we're doomed!
 
 How could we loose against them? I thought I've got the right person at hand.
 
-Well I think it's time to part. Farwell... My friend...
+But, no, sorry, it's not your fault. Well I think it's time to part.
+
+Farwell... My friend...
 
 :FIN:
 """
