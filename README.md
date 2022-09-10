@@ -18,7 +18,7 @@ More details can be found on its [entry page](https://pyweek.org/e/outward/)
 Will be available from the releases section soon
 
 ## python3
-Download python3 (3.10+ recommended)
+Download python3 (3.10+ recommended)<br/>
 Download the repository (either via git or as zip) and navigate into it.
 
 install dependencies
